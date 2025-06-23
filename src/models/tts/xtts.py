@@ -27,4 +27,4 @@ class TTSService:
         )
 
 # Singleton pattern
-TTS = TTSService()
+XTTS = TTSService()
