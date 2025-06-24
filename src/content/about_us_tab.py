@@ -13,8 +13,9 @@ def about_us_tab():
                 W skład zespołu wchodzą: Natalia Iwańska, Klaudia Janicka, Wiktor Jeżowski, Kajetan Kołodziejczyk oraz Michał Wiktorowski. 
                 <br>
                 Opiekunami projektu są dr hab. inż. Maciej Piasecki oraz dr inż. Piotr Syga.
-                </div>
+                </div><br>
             """)
+
 
             gr.HTML('<div style="font-size: 35px; font-family: Myriad, sans-serif; font-weight: bold; text-align: left;">📩 Kontakt</div>')
 

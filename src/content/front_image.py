@@ -4,25 +4,22 @@ from src.utils import get_base64_image
 def image_tab():
     gr.HTML("""
     <style>
-    .full-width-img-container {
-        width: 100%;
-        overflow: hidden;
-        margin: 0;
-        padding: 0;
+    .scaled-img-container {
+        display: flex;
+        justify-content: center;
+        padding: 0.1em 0;
     }
-    .full-width-img {
-        width: 100%;
-        height: auto;
-        display: block;
+    .scaled-img {
+        transform-origin: top center;
     }
     </style>
     """)
-    
-    img_data = get_base64_image("assets/logo.png")
+
+    img_data = get_base64_image("assets/DubAI.png")
     logo_html = f"""
-    <div class="full-width-img-container">
+    <div class="scaled-img-container">
         <img src="{img_data}" 
-             class="full-width-img"
+             class="scaled-img"
              alt="Logo" />
     </div>
     """
