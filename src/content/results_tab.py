@@ -36,6 +36,11 @@ def results_tab():
 
             gr.HTML('<div style="font-size: 35px; font-family: Myriad, sans-serif; font-weight: bold; text-align: left;">🈲 Przykłady wpływu kontekstu na tłumaczenie</div>')
             gr.HTML("""
+                <div style="font-size: 18px; font-family: Myriad, sans-serif;">
+                Poniżej prezentujemy przykłady tłumaczeń wykonanych bez kontekstu oraz z uwzględnieniem kontekstu wypowiedzi. Zestawienie to ma na celu zilustrowanie, jak istotny wpływ na jakość i poprawność tłumaczenia może mieć kontekst w postaci wypowiedzi poprzedzającej i następującej po tłumaczonym fragmencie. Dzięki temu można zaobserwować różnice w interpretacji znaczenia, doborze słownictwa oraz płynności przekładu w zależności od dostępnych informacji kontekstowych.
+                </div>
+            """)
+            gr.HTML("""
                     <div style="display:flex; gap:20px; flex-wrap: wrap; color:#000;">
 
                     <div style="flex:1; background-color:#f5f5f5; color:#000; border:2px solid black; border-radius:20px; padding:15px; min-width:300px;">
