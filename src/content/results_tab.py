@@ -1,5 +1,6 @@
 import gradio as gr
 from pathlib import Path
+from src.utils import get_base64_image
 
 
 def get_files(dir_name):
@@ -14,6 +15,11 @@ def results_tab():
     with gr.Tab("📊 Wyniki"):
         with gr.Column(elem_classes="results-tab"):
             gr.HTML('<div style="font-size: 35px; font-family: Myriad, sans-serif; font-weight: bold; text-align: left;">🎵 Przykłady dubbingu</div>')
+            gr.HTML("""
+                <div style="font-size: 18px; font-family: Myriad, sans-serif;">
+                Poniżej przedstawiamy efekty naszego rozwiązania — przykładowe pary nagrań oryginalnych i wygenerowanych. Wśród nich znajdują się zarówno nagrania pojedyńczych wypowiedzi, jak i rozbudowane dialogi z muzyką w tle. Poszczególne wypowiedzi można odsłuchać, klikając na przycisk uruchamiający odtwarzacz audio.
+                </div>
+            """)
             with gr.Row():
                 gr.HTML('<div style="font-size: 20px; font-family: Myriad, sans-serif; font-weight: bold; text-align: center;">Oryginalne nagranie</div>')
                 gr.HTML('<div style="font-size: 20px; font-family: Myriad, sans-serif; font-weight: bold; text-align: center;">Wygenerowany dubbing</div>')
@@ -26,7 +32,9 @@ def results_tab():
             
             gr.HTML('<br><br>')
 
-            gr.HTML('<div style="font-size: 35px; font-family: Myriad, sans-serif; font-weight: bold; text-align: left;">Przykłady wpływu kontekstu na tłumaczenie</div>')
+# WPŁYW KONTEKSTU NA TŁUMACZENIE
+
+            gr.HTML('<div style="font-size: 35px; font-family: Myriad, sans-serif; font-weight: bold; text-align: left;">🈲 Przykłady wpływu kontekstu na tłumaczenie</div>')
             gr.HTML("""
                     <div style="display:flex; gap:20px; flex-wrap: wrap; color:#000;">
 
@@ -87,6 +95,76 @@ def results_tab():
                     </div>
                     </div>
                     """)
+            
+            gr.HTML('<br><br>')
+            
+# MOS
+            gr.HTML('<div style="font-size: 35px; font-family: Myriad, sans-serif; font-weight: bold; text-align: left;">📋 Test MOS')
+            gr.HTML("""
+                <div style="font-size: 18px; font-family: Myriad, sans-serif;">
+                Jednym z najważniejszych wyznaczników jakości mowy syntetycznej jest opinia drugiego człowieka. W tym celu przeprowadziliśmy test MOS (ang. <i>Mean Opinion Score</i>), który polega na subiektywnej ocenie jakości dźwięku przez słuchaczy. W badaniu wzięło udział 63 uczestników, którzy mieli za zadanie wysłuchać fragmentów nagrań i ocenić je w skali od 1 do 5, gdzie 1 oznaczało bardzo niską jakość, a 5 bardzo wysoką. Sprawdzona została zarówno naturalność wygenerowanego dźwięku (nMOS), jak i jakość transferu cech mowy (sMOS).
+                <br><br>
+                W <a href="#mosTable">tabeli</a> przedstawiamy średnie wyniki testów nMOS i sMOS, zarówno dla tłumaczenia z języka angielskiego na polski, jak i odwrotnie. Rezultaty są w obu przypadkach na wysokim poziomie, aczkolwiek nieco gorsze wyniki uzyskano dla syntezy z języka angielskiego na polski. Wynika to głównie ze złożoności fleksyjnej języka polskiego oraz znacznie mniejszego wsparcia modeli dla tego języka. Na <a href="#nmos">wykresach</a> przedstawiono szczegółowy rozkład ocen dla nMOS i sMOS.
+                </div>
+                <br><br>
+                <table id="mosTable" style="margin: 0 auto; border-collapse: collapse; max-width: 600px; width: 100%; font-size: 20px;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid #000;">
+                            <th style="padding: 10px;"></th>
+                            <th style="padding: 10px;"><strong>EN &rarr; PL</strong></th>
+                            <th style="padding: 10px;"><strong>PL &rarr; EN</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #ccc;">
+                            <td style="padding: 10px;"><strong>nMOS</strong></td>
+                            <td style="padding: 10px;">4,02</td>
+                            <td style="padding: 10px;">4,38</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px;"><strong>sMOS</strong></td>
+                            <td style="padding: 10px;">4,08</td>
+                            <td style="padding: 10px;">4,51</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="text-align: center; font-size: 16px; font-family: Myriad, sans-serif; margin-top: 8px;">
+                    Średnie wyniki testu MOS.
+                </div>
+                <style>
+                    table tbody tr:hover {
+                        background-color: #f0f0f0;
+                    }
+                </style>
+            """)
+            
+            gr.HTML("""
+            <style>
+            .scaled-img-container {
+                display: flex;
+                justify-content: center;
+                padding: 0.1em 0;
+            }
+            .scaled-img {
+                transform-origin: top center;
+            }
+            </style>
+            """)
 
+            img_nmos = get_base64_image("assets/nmos.png")
+            img_smos = get_base64_image("assets/smos.png")
+            imgs_with_labels = f"""
+            <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; text-align: center;">
+                <div>
+                    <img id="nmos" src="{img_nmos}" class="scaled-img" alt="nmos" style="max-width: 100%; height: auto;" />
+                    <div style="margin-top: 10px; font-size: 16px; font-family: Myriad, sans-serif;">Wyniki testu nMOS.</div>
+                </div>
+                <div>
+                    <img id="smos" src="{img_smos}" class="scaled-img" alt="smos" style="max-width: 100%; height: auto;" />
+                    <div style="margin-top: 10px; font-size: 16px; font-family: Myriad, sans-serif;">Wyniki testu sMOS.</div>
+                </div>
+            </div>
+            """
+            gr.HTML(imgs_with_labels)
 
                                 

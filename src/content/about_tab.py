@@ -48,7 +48,7 @@ def about_tab():
             </div>
             """
             gr.HTML(schema_html)
-            gr.HTML('<div style="text-align: center; font-size: 18px; font-family: Myriad, sans-serif;"><strong>Schemat 1.</strong> Przebieg procesu przetwarzania nagrania.</div>')
+            gr.HTML('<div style="text-align: center; font-size: 18px; font-family: Myriad, sans-serif;">Przebieg procesu przetwarzania nagrania.</div>')
             
         
 
