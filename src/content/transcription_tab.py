@@ -3,7 +3,7 @@ import gradio as gr
 def transcription_tab(full_pipeline):
     with gr.Tab("🎙️ Aplikacja"):
         with gr.Column(elem_classes="method-tab"):
-            gr.HTML('<div style="font-size: 40px; font-family: Myriad, sans-serif; font-weight: bold; text-align: left;">🎙️ Aplikacja</div>')
+            gr.HTML('<div style="font-size: 35px; font-family: Myriad, sans-serif; font-weight: bold; text-align: left;">🎙️ Aplikacja</div>')
             gr.HTML("""
                     <div style="font-size: 18px; font-family: Myriad, sans-serif;">
                     Jesteś ciekawy, jak Twój głos brzmi w innym języku? Możesz to sprawdzić! W ramach projektu udostępniamy wersję demonstracyjną naszej aplikacji. Wystarczy nagrać swoją wypowiedź w języku polskim, a aplikacja automatycznie przetłumaczy ją na język angielski i wygeneruje syntezę głosu. Wystarczy kliknąć przycisk "Uruchom", aby rozpocząć proces.

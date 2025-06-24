@@ -5,9 +5,11 @@ from src.content.about_tab import about_tab
 from src.content.contact_tab import contact_tab
 from src.content.front_image import image_tab
 from src.content.method_tab import method_tab
+from src.content.results_tab import results_tab
+from src.content.about_us_tab import about_us_tab
 
-
-
+from dotenv import load_dotenv
+load_dotenv()
 
 
 
@@ -18,8 +20,9 @@ with gr.Blocks(theme='Taithrah/Minimal') as demo:
     with gr.Tabs():
         about_tab()
         method_tab()
+        results_tab()
         transcription_tab(PIPELINE)
-        contact_tab()
+        about_us_tab()
 
 if __name__ == "__main__":
     demo.launch()

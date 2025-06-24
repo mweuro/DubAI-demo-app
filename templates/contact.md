@@ -1,0 +1,5 @@
+- Natalia Iwańska 📧 [262270@student.pwr.edu.pl](mailto:262270@student.pwr.edu.pl)
+- Klaudia Janicka 📧 [262268@student.pwr.edu.pl](mailto:262268@student.pwr.edu.pl)
+- Wiktor Jeżowski 📧 [260426@student.pwr.edu.pl](mailto:262268@student.pwr.edu.pl)
+- Kajetan Kołodziejczyk 📧 [259171@student.pwr.edu.pl](mailto:262268@student.pwr.edu.pl)
+- Michał Wiktorowski 📧 [262330@student.pwr.edu.pl](mailto:262268@student.pwr.edu.pl)
