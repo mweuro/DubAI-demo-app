@@ -5,6 +5,7 @@ from src.content.about_tab import about_tab
 from src.content.front_image import image_tab
 from src.content.results_tab import results_tab
 from src.content.about_us_tab import about_us_tab
+from src.content.others_tab import pdf_tab
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -20,6 +21,7 @@ with gr.Blocks(theme='Taithrah/Minimal') as demo:
         results_tab()
         transcription_tab(PIPELINE)
         about_us_tab()
+        pdf_tab()
 
 if __name__ == "__main__":
     demo.launch()
