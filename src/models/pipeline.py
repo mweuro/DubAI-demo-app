@@ -9,7 +9,7 @@ def PIPELINE(audio_file: str) -> str:
     # TRANSCRIPTION
     transcript = ASR.transcribe(audio_file)
     # TRANSLATION
-    translation = TRANSLATOR.translate(transcript, source_lang="pl", target_lang="EN")
+    translation = TRANSLATOR.translate(transcript, source_lang="pl", target_lang="EN-US")
     # SYNTHESIS
     if os.path.exists(OUTPUT_WAV_PATH):
         os.remove(OUTPUT_WAV_PATH)

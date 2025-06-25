@@ -18,7 +18,7 @@ class TranslationService:
         self, 
         text: str, 
         source_lang: str = "PL",
-        target_lang: str = "EN"
+        target_lang: str = "EN-US"
     ) -> str:
         """Tłumaczenie tekstu"""
         result = self.translator.translate_text(
@@ -26,7 +26,7 @@ class TranslationService:
             source_lang=source_lang,
             target_lang=target_lang
         )
-        return result.text
+        return result.text.replace(".", ",")
 
 # Singleton pattern
 TRANSLATOR = TranslationService()
