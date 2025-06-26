@@ -14,4 +14,19 @@ def pdf_tab():
             """)
             gr.File(value="assets/G13_DUBAI.pdf", label="🖼️ Plakat", interactive=True)
             gr.File(value="assets/G13_DUBAI.pptx", label="📈 Prezentacja", interactive=True)
+
+            gr.HTML('<br><br>')
+            gr.HTML('<div style="font-size: 35px; font-family: Myriad, sans-serif; font-weight: bold; text-align: left;">Repozytorium</div>')
+            gr.HTML("""
+                <div style="font-size: 18px; font-family: Myriad, sans-serif;">
+                <ul>
+                <li>
+                    <a href="https://github.com/mweuro/DubAI-demo-app">https://github.com/mweuro/DubAI-demo-app</a>
+                </li>
+                <li>
+                    <a href="https://github.com/klaudynka245/DubAI">https://github.com/klaudynka245/DubAI</a>
+                </li>
+                </ul>
+                </div>
+            """)
             
